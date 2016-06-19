@@ -42,4 +42,8 @@ Rails.application.configure do
   # better_errors settings
   BetterErrors::Middleware.allow_ip! ENV['TRUSTED_IP'] if ENV['TRUSTED_IP']
   config.web_console.whitelisted_ips = ENV['TRUSTED_IP']
+  
+  # Devise
+  config.action_mailer.default_url_options = { host: 'https://playground2-smartbitsapps.c9users.io/' }
+  
 end
