@@ -80,4 +80,6 @@ Rails.application.configure do
   # Devise
   config.action_mailer.default_url_options = { host: 'lpmilestone.herokuapp.com' }
   
+  # i18n translation change -> :cs
+  config.i18n.available_locales = :cs
 end

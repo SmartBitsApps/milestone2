@@ -9,8 +9,8 @@ gem 'devise', '~> 4.1', '>= 4.1.1'
 gem 'pundit', '~> 1.1'
 
 ## for translations
-#gem 'devise-i18n'
-#gem 'rails-i18n', '~> 4.0', '>= 4.0.8'
+gem 'devise-i18n'
+gem 'rails-i18n', '~> 4.0', '>= 4.0.8'
 
 #s# for forms
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
@@ -21,7 +21,7 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 ## for design
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 #gem 'bootstrap-sass-extras', '~> 0.0.2'
-#gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
+gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
 
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'annotate', '~> 2.7'
