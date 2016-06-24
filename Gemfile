@@ -57,6 +57,7 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 3.1', '>= 3.1.1'
   gem 'spring', '~> 1.6', '>= 1.6.4'
+  gem 'quiet_assets', '~> 1.1'
 end
 
 group :production do
