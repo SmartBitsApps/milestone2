@@ -23,6 +23,7 @@ gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'bootstrap-sass-extras', '~> 0.0.2'
 gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
 
+gem 'bundler', '~> 1.12', '>= 1.12.5'
 gem 'jquery-turbolinks', '~> 2.1'
 gem 'annotate', '~> 2.7'
 gem 'rails', '~> 4.2', '>= 4.2.6'
