@@ -1,27 +1,35 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Milestone</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-  <% render 'layouts/shim' %>
-</head>
-<body class="<%= controller_name %> <%= action_name%>">
-	<%= render 'layouts/header' %>
-	<div class="container-fluid">
-    <% flash.each do |name, msg| %>
-      <%= content_tag(:div, msg, class:"alert alert-#{name} col-md-8 col-md-offset-2 main") %>
-    <% end %>
-    
-    <div class="row">
-			<%= yield :sidebar %>
-			<%= yield %>
-		</div>
-		
-		<%= render 'layouts/footer' %>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <%= viewport_meta_tag %>
+    <title><%= content_for?(:title) ? yield(:title) : "Milestone" %></title>
+    <%= csrf_meta_tags %>
+    <% render 'layouts/shim' %>
+    <% render 'layouts/retina_icons' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  </head>
   
-  </div>
-</body>
+  <body class="<%= controller_name %> <%= action_name%>">
+    
+    <%= render 'layouts/header' %>
+    
+    <div class="container-fluid">
+      <div class="row">
+        
+        <div class="col-md-9">
+          <%= bootstrap_flash %>
+          <%= yield :sidebar %>
+          <%= yield %>
+        </div>
+        
+      </div><!--/row-->
+      
+      <%= render 'layouts/footer' %>
+
+    </div> <!-- /container -->
+
+  </body>
 </html>
