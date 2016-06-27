@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
     end
     
     def user_not_authorized
-      flash[:alert] = "Access denied."
+      flash[:alert] = "Přístup zamítnut."
       redirect_to (request.referrer || root_path)
     end
     

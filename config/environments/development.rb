@@ -47,7 +47,8 @@ Rails.application.configure do
   config.action_mailer.default_url_options = { host: 'https://playground2-smartbitsapps.c9users.io/' }
   
   # i18n translation change -> :cs
-  config.i18n.available_locales = :cs
+  config.i18n.available_locales = [:cs, :en]
+  config.i18n.default_locale = :cs
   
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found)

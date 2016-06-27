@@ -53,6 +53,7 @@ group :development, :test do
   gem 'capybara', '~> 2.6', '>= 2.6.2'
   # gem 'capybara-webkit', '~> 1.8'
   gem 'factory_girl_rails', '~> 4.6'
+  gem 'faker', '~> 1.6', '>= 1.6.3'
 end
 
 group :test do
@@ -60,7 +61,6 @@ group :test do
   gem 'launchy', '~> 2.4', '>= 2.4.3'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.1'
   gem 'shoulda-matchers', '~> 3.1', '>= 3.1.1', require: false
-  gem 'faker', '~> 1.6', '>= 1.6.3'
 end
 
 group :development do

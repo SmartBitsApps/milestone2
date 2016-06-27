@@ -16,9 +16,13 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  role                   :integer
+#  avatar                 :string
 #
 
 class User < ActiveRecord::Base
+  
+  has_many :events
+  has_many :subscriptions
            
   mount_uploader :avatar, AvatarUploader
   

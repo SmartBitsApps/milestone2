@@ -1,0 +1,26 @@
+<%= simple_form_for @event, html: { multipart: true, class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f| %>
+    <%= f.error_notification %>
+  <div class="form-inputs">
+    
+    
+    
+    <%= f.input :title, label: 'Název akce' %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :address %>
+    <%= f.input :manager %>
+    <%= f.input :visible %>
+    <div class="form-group string optional event_image_file_name">
+      <%= f.file_field :image, class: "btn btn-primary" %>
+    </div>
+  </div>
+    
+  <div class="form-group"> 
+    <div class='col-sm-offset-3 col-sm-9'>
+      <%= f.button :submit, class: 'btn-success' %>
+      <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                  events_path, class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
