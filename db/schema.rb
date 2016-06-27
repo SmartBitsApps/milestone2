@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626193527) do
+ActiveRecord::Schema.define(version: 20160627165419) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "clients", force: :cascade do |t|
+    t.string   "logo"
+    t.string   "company_name",   default: "", null: false
+    t.string   "email",          default: "", null: false
+    t.string   "phone_number"
+    t.string   "vat_id"
+    t.string   "contact_person"
+    t.boolean  "visible"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "clients", ["company_name"], name: "index_clients_on_company_name", unique: true, using: :btree
+  add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
