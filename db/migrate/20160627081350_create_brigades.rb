@@ -4,8 +4,8 @@ class CreateBrigades < ActiveRecord::Migration
       t.references :event,     index: true, foreign_key: true
       t.references :position,  index: true, foreign_key: true
       t.integer :quantity,     null: false, default: 0
-      t.boolean :visible,      default: false
-
+      t.boolean :visible
+      
       t.timestamps null: false
     end
   end

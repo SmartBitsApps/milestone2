@@ -10,7 +10,7 @@ class CreateEvents < ActiveRecord::Migration
       t.string :end_date,   null: false, default: ""
       t.string :address,    null: false, default: ""
       t.integer :manager
-      t.boolean :visible,   default: false
+      t.boolean :visible
 
       t.timestamps null: false
     end

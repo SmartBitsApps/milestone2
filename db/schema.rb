@@ -19,10 +19,10 @@ ActiveRecord::Schema.define(version: 20160627081435) do
   create_table "brigades", force: :cascade do |t|
     t.integer  "event_id"
     t.integer  "position_id"
-    t.integer  "quantity",    default: 0,     null: false
-    t.boolean  "visible",     default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "quantity",    default: 0, null: false
+    t.boolean  "visible"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "brigades", ["event_id"], name: "index_brigades_on_event_id", using: :btree
@@ -30,14 +30,14 @@ ActiveRecord::Schema.define(version: 20160627081435) do
 
   create_table "clients", force: :cascade do |t|
     t.string   "logo"
-    t.string   "company_name",   default: "",    null: false
-    t.string   "email",          default: "",    null: false
-    t.string   "phone_number",   default: "",    null: false
+    t.string   "company_name",   default: "", null: false
+    t.string   "email",          default: "", null: false
+    t.string   "phone_number",   default: "", null: false
     t.integer  "vat_id"
     t.string   "contact_person"
-    t.boolean  "visible",        default: false
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.boolean  "visible"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "clients", ["email"], name: "index_clients_on_email", unique: true, using: :btree
@@ -45,16 +45,16 @@ ActiveRecord::Schema.define(version: 20160627081435) do
   create_table "events", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "client_id"
-    t.string   "title",       default: "",    null: false
-    t.text     "description", default: "",    null: false
+    t.string   "title",       default: "", null: false
+    t.text     "description", default: "", null: false
     t.string   "image"
-    t.string   "start_date",  default: "",    null: false
-    t.string   "end_date",    default: "",    null: false
-    t.string   "address",     default: "",    null: false
+    t.string   "start_date",  default: "", null: false
+    t.string   "end_date",    default: "", null: false
+    t.string   "address",     default: "", null: false
     t.integer  "manager"
-    t.boolean  "visible",     default: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.boolean  "visible"
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   add_index "events", ["client_id"], name: "index_events_on_client_id", using: :btree
@@ -71,9 +71,9 @@ ActiveRecord::Schema.define(version: 20160627081435) do
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "brigade_id"
     t.integer  "user_id"
-    t.boolean  "approved",   default: false
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.boolean  "approved"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_index "subscriptions", ["brigade_id"], name: "index_subscriptions_on_brigade_id", using: :btree

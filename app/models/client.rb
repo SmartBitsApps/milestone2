@@ -22,5 +22,5 @@ class Client < ActiveRecord::Base
     validates :phone_number,    presence: true
     validates :vat_id,          presence: true, length: { in: 6..10 }, numericality: true
     #validates :contact_person
-    validates :visible,         presence: true, inclusion: { in: [true, false] } #, presence: true
+    #validates :visible,         inclusion: { in: [true, false] } #, presence: true
 end
