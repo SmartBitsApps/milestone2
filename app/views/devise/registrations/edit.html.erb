@@ -1,30 +1,39 @@
 <div class="form-wrapper">
   <div class="form-login col-md-4 col-md-offset-4">
-    <h2>Edit <%= resource_name.to_s.humanize %></h2>
+    <h2>Upravit svůj účet</h2>
     
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:method => :put, :multipart => true}) do |f| %>
       <%= f.error_notification %>
     
       <div class="form-inputs">
+        
+        <% if current_user.avatar.url.present? %>
+          <%= image_tag(current_user.avatar.url(:small)) %>
+          <%= f.label :remove_avatar do %>
+            <%= f.check_box :remove_avatar %>
+          <% end %>
+        <% end %>
+        <br>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+        
+        <hr>
         <%= f.input :email, required: true, autofocus: true %>
     
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
         <% end %>
-    
-        <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
+        <br><hr>
+        <%= f.input :password, autocomplete: "off", hint: "nechte pole prázdné, pokud nechcete měnit heslo", required: false %>
         <%= f.input :password_confirmation, required: false %>
-        <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+        <br><hr>
+        <%= f.input :current_password, hint: "pro uložení změn zadejte současné heslo", required: true %>
       </div>
     
       <div class="form-actions">
-        <%= f.button :submit, "Update" %>
+        <%= f.button :submit, "Upravit" %>
       </div>
     <% end %>
-    
-    <h3>Cancel my account</h3>
-    
-    <p>Unhappy? <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
     
     <%= link_to "Back", :back %>
   </div>

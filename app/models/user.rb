@@ -19,6 +19,8 @@
 #
 
 class User < ActiveRecord::Base
+           
+  mount_uploader :avatar, AvatarUploader
   
   enum role: [:user, :manager, :admin]
 	after_initialize :set_default_role, :if => :new_record?
@@ -31,4 +33,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  
+  
 end

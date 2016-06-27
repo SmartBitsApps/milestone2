@@ -18,10 +18,19 @@ gem 'simple_form', '~> 3.2', '>= 3.2.1'
 ## for images
 #gem 'paperclip', '~> 4.3', '>= 4.3.6'
 
+## for uploads
+gem 'carrierwave', '~> 0.11.2'
+gem 'fog', '~> 1.38'
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+
+## for values security
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+
 ## for design
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.6'
 gem 'bootstrap-sass-extras', '~> 0.0.2'
 gem 'font-awesome-sass', '~> 4.6', '>= 4.6.2'
+
 
 gem 'bundler', '~> 1.12', '>= 1.12.5'
 gem 'jquery-turbolinks', '~> 2.1'
