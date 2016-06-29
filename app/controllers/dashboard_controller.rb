@@ -5,10 +5,10 @@ class DashboardController < ApplicationController
    def index
       case current_user.role
         when "admin"
-          #do something
+          #@user = current_user
           render "dashboard/admin"
         when "manager"
-          #do something
+          #@user = current_user
           render "dashboard/manager"
         when "user"
           @user = current_user
