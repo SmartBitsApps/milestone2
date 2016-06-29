@@ -5,6 +5,9 @@ ruby '2.3.1'
 # for authnetication
 gem 'devise', '~> 4.1', '>= 4.1.1'
 
+# for steps forms
+gem 'wicked', '~> 1.3'
+
 # for authorization
 gem 'pundit', '~> 1.1'
 

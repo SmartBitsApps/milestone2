@@ -17,6 +17,17 @@
 #  updated_at             :datetime         not null
 #  role                   :integer
 #  avatar                 :string
+#  first_name             :string
+#  last_name              :string
+#  name                   :string
+#  birth_name             :string
+#  birth_date             :string
+#  gender                 :string
+#  birth_number           :string
+#  birth_place            :string
+#  nationality            :string
+#  family_status          :string
+#  status                 :string
 #
 
 class User < ActiveRecord::Base
@@ -27,11 +38,15 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   
   enum role: [:user, :manager, :admin]
-	after_initialize :set_default_role, :if => :new_record?
+  #enum gender: [:man, :woman]
+  enum gender: {:man => "Muž",:woman => "Žena"}
+  after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
     self.role ||= :user
   end
+  
+  
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

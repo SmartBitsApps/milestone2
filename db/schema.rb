@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627081435) do
+ActiveRecord::Schema.define(version: 20160629122122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -96,10 +96,21 @@ ActiveRecord::Schema.define(version: 20160627081435) do
     t.string   "avatar"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "name"
+    t.string   "birth_name"
+    t.string   "birth_date"
+    t.string   "gender"
+    t.string   "birth_number"
+    t.string   "birth_place"
+    t.string   "nationality"
+    t.string   "family_status"
+    t.string   "status"
   end
 
+  add_index "users", ["birth_number"], name: "index_users_on_birth_number", using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["status"], name: "index_users_on_status", using: :btree
 
   add_foreign_key "brigades", "events"
   add_foreign_key "brigades", "positions"

@@ -18,7 +18,24 @@
         <%= f.hidden_field :avatar_cache %>
         
         <hr>
-        <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :first_name, required: false, label: 'Jméno', autofocus: true %>
+        <%= f.input :last_name, required: false, label: 'Příjmení' %>
+        <%= f.input :birth_name, required: false, label: 'Rodné příjmení' %>
+        <%= f.input :birth_date, required: false, label: 'Datum narození' %>
+        <%= f.input :birth_number, required: false, label: 'Rodné číslo' %>
+        
+        <!-- TODO nastavit checkbox-->
+        <%= f.input :gender, collection: User.genders, as: :radio_buttons, item_wrapper_class: 'btn btn-default', checked: User.genders[@user.gender] %>
+        
+        
+        <%= f.input :birth_place, required: false, label: 'Místo narození' %>
+        
+        <%= f.input :nationality, required: false, label: 'Národnost' %>
+        
+        <%= f.input :family_status, required: false, label: 'Rodinný stav' %>
+        
+        
+        <%= f.input :email, required: true %>
     
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
           <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
