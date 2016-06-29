@@ -12,7 +12,7 @@
 #  end_date    :string           default(""), not null
 #  address     :string           default(""), not null
 #  manager     :integer
-#  visible     :boolean          default(FALSE), not null
+#  visible     :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
@@ -30,4 +30,7 @@ class Event < ActiveRecord::Base
   validates :address,         presence: true
   validates :manager,         numericality: true
   #validates :visible,         inclusion: { in: [true, false, nil] } #, presence: true
+  
+  mount_uploader :image, ImageUploader
+  
 end

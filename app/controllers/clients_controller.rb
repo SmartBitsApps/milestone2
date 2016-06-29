@@ -10,14 +10,14 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = current_user.clients.build
+    @client = Client.new
   end
 
   def edit
   end
 
   def create
-    @client = current_user.clients.build(client_params)
+    @client = Client.new(client_params)
     
     if @client.save
       redirect_to @client, notice: 'Klient byl vytvořen.'

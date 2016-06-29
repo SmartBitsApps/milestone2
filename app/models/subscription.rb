@@ -5,7 +5,7 @@
 #  id         :integer          not null, primary key
 #  brigade_id :integer
 #  user_id    :integer
-#  approved   :boolean          default(FALSE), not null
+#  approved   :boolean
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

@@ -9,7 +9,7 @@
 #  phone_number   :string           default(""), not null
 #  vat_id         :integer
 #  contact_person :string
-#  visible        :boolean          default(FALSE), not null
+#  visible        :boolean
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #

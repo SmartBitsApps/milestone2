@@ -6,7 +6,7 @@
 #  event_id    :integer
 #  position_id :integer
 #  quantity    :integer          default(0), not null
-#  visible     :boolean          default(FALSE), not null
+#  visible     :boolean
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

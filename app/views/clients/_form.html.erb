@@ -1,0 +1,16 @@
+<%= simple_form_for @client, html: { class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f| %>
+    <%= f.input :logo %>
+    <%= f.input :company_name %>
+    <%= f.input :email %>
+    <%= f.input :phone_number %>
+    <%= f.input :vat_id %>
+    <%= f.input :contact_person %>
+    <%= f.input :visible %>
+  <div class="form-group">
+    <div class='col-sm-offset-3 col-sm-9'>
+      <%= f.button :submit, class: 'btn-primary' %>
+      <%= link_to t('.cancel', default: t("helpers.links.cancel")),
+                  clients_path, class: 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

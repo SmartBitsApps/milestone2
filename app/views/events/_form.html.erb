@@ -1,5 +1,5 @@
 <%= simple_form_for @event, html: { multipart: true, class: 'form-horizontal' }, wrapper: :horizontal_form, wrapper_mappings: { check_boxes: :horizontal_radio_and_checkboxes, radio_buttons: :horizontal_radio_and_checkboxes, file: :horizontal_file_input, boolean: :horizontal_boolean } do |f| %>
-    <%= f.error_notification %>
+    <div class="col-sm-offset-3 col-sm-9"><%= f.error_notification %></div>
   <div class="form-inputs">
     
     
@@ -11,7 +11,7 @@
     <%= f.input :address %>
     <%= f.input :manager %>
     <%= f.input :visible %>
-    <div class="form-group string optional event_image_file_name">
+    <div class="form-group string optional event_image_file_name col-sm-offset-3 col-sm-9">
       <%= f.file_field :image, class: "btn btn-primary" %>
     </div>
   </div>
