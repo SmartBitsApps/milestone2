@@ -1,7 +1,15 @@
-class Users::RegistrationsController < Devise::RegistrationsController
+class RegistrationsController < Devise::RegistrationsController
   before_filter :configure_permitted_parameters
-
+  
+  def create
+    super
+  end
+  
   protected
+  
+  def after_sign_up_path_for(resource)
+    after_register_path(:add_name)
+  end
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation, :remember_me])

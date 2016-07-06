@@ -4,7 +4,7 @@
   </p>
 </div>
 	<div class="form-login col-md-12">
-	  <h2>Upravit svůj účet</h2>
+	  <h2>Můj profil</h2>
 	  <br>
 	  <hr>
 	  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:method => :put, :multipart => true}) do |f| %>
@@ -30,7 +30,7 @@
 		    	<div class="row" id="name_fields">
 		    	  <div class="col-md-10 col-md-offset-1">
 		    		  <hr>
-              <%= f.input :first_name, required: false, label: 'Jméno', autofocus: true %>
+		    		  <%= f.input :first_name, required: false, label: 'Jméno', autofocus: true %>
               <%= f.input :last_name, required: false, label: 'Příjmení' %>
               <%= f.input :birth_name, required: false, label: 'Rodné příjmení' %>
             </div>

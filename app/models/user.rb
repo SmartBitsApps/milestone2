@@ -39,14 +39,15 @@ class User < ActiveRecord::Base
   
   enum role: [:user, :manager, :admin]
   #enum gender: [:man, :woman]
-  enum gender: {:man => "Muž",:woman => "Žena"}
+  #enum gender: {:man => "Muž",:woman => "Žena"}
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
     self.role ||= :user
   end
   
-  
+  #validates :email,       presence: true, uniqueness: { case_sensitive: false }
+  #validates :password,    presence: true
   
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

@@ -1,0 +1,21 @@
+<div class="form-wrapper">
+  <div class="form-login col-md-4 col-md-offset-4">
+    <h2>Děkujeme za registraci.</h2>
+    <br><br>
+    <h4>Pro vygenererování smlouvy je nutné vyplnit všechny položky registrace</h4>
+    
+    <br>
+    
+    <%= simple_form_for(@user, :url => wizard_path, :method => :put) do |f| %>
+        
+        <%= f.input :first_name, :placeholder => "Jméno", required: true %>
+        <%= f.input :last_name, :placeholder => "Příjmení", required: true %>
+        <%= f.input :birth_name, :placeholder => "Rodné příjmení", required: true %>
+        
+        <%= f.submit "Další", :class => "btn btn-primary" %>
+    
+    <% end %>
+    
+    <%= link_to "Přeskočit", next_wizard_path %>
+  </div>
+</div>

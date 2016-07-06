@@ -7,13 +7,16 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'static_pages#root'
   #root 'users#dashboard'
-  devise_for :users, :controllers => { :registrations => "users/registrations" }
+  devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users
+  
+  resources :after_register
+  
   resources :events
   resources :clients
   #resources :static_pages
   resources :dashboard, only: [:index] #-> url.com/dashboard
-
+  
 
 
   # Example of regular route:
