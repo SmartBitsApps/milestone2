@@ -5,19 +5,22 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'static_pages#root'
+  
   #root 'users#dashboard'
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :users
-  
   resources :after_register
+  
+  #resources :users do
+  #  resources :after_register
+  #end
   
   resources :events
   resources :clients
   #resources :static_pages
   resources :dashboard, only: [:index] #-> url.com/dashboard
   
-
+  root 'static_pages#root'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

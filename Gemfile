@@ -17,6 +17,9 @@ gem 'rails-i18n', '~> 4.0', '>= 4.0.8'
 
 #s# for forms
 gem 'simple_form', '~> 3.2', '>= 3.2.1'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17', '>= 4.17.37'
+gem 'momentjs-rails', '~> 2.11', '>= 2.11.1'
+
 
 ## for images
 #gem 'paperclip', '~> 4.3', '>= 4.3.6'

@@ -28,6 +28,11 @@
 #  nationality            :string
 #  family_status          :string
 #  status                 :string
+#  bank_acc               :string
+#  insurance              :string
+#  occupation             :string
+#  reg_progress           :string
+#  degree                 :string
 #
 
 class User < ActiveRecord::Base
@@ -38,13 +43,19 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   
   enum role: [:user, :manager, :admin]
-  #enum gender: [:man, :woman]
-  #enum gender: {:man => "Muž",:woman => "Žena"}
   after_initialize :set_default_role, :if => :new_record?
 
   def set_default_role
     self.role ||= :user
   end
+  
+  validates_presence_of :first_name, :on => :update
+  validates_presence_of :last_name, :on => :update
+  validates_presence_of :birth_name, :on => :update
+  #validates_presence_of :birth_date, :on => :update
+  #validates_presence_of :gender, :on => :update
+  #validates_presence_of :birth_number, :on => :update
+  #validates_presence_of :birth_place, :on => :update
   
   #validates :email,       presence: true, uniqueness: { case_sensitive: false }
   #validates :password,    presence: true

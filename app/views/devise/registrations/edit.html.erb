@@ -8,21 +8,23 @@
 	  <br>
 	  <hr>
 	  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), :html => {:method => :put, :multipart => true}) do |f| %>
-      <%= f.error_notification %>
+      <div class="col-md-8 col-md-offset-2">
+      	<%= f.error_notification %>
+      </div>
       <div class="form-inputs">
 		    <div class="col-md-6">
-		    	<div class="row" id="avatar">
-		    	  <!-- TODO Vycentrovat obrazek i na sm rozlireni -->
-		    		<div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">
+		    	<div class="row">
+		    		<div id="avatar" class="">
+		    			
 		    			<%= f.hidden_field :avatar_cache %>
 		    			
-		    			<% if !current_user.avatar.file.nil? %>
-            			<%= image_tag(current_user.avatar.url(:medium), alt: "Profile Picture", class: 'img-circle') %>
+		    			<% if !@user.avatar.file.nil? %>
+            			<%= image_tag(@user.avatar.url(:medium), alt: "Profile Picture", class: 'center') %>
             	<% end %>
             	
             	<br>
             	<!-- TODO zobrazit tlačítko "změnit" po kliknutí, upload nového avataru-->
-              <%= f.file_field :avatar %>
+              <%= f.file_field :avatar, class: "btn btn-default center" %>
             	
             	<br><br>
 		    		</div>
@@ -35,6 +37,7 @@
               <%= f.input :birth_name, required: false, label: 'Rodné příjmení' %>
             </div>
 		    	</div>
+		    	
 		    	<div class="row" id="communication">
 		    	  <div class="col-md-10 col-md-offset-1">
 		    		  <hr>
@@ -42,29 +45,54 @@
               <!-- TODO ZDE PŘIDAT phone_number -->
             </div>
 		    	</div>
+		    	
+		    	<div class="row" id="address">
+		    	  <div class="col-md-10 col-md-offset-1">
+		    		  <hr>
+              <!-- TODO ZDE PŘIDAT ADRESU (street, city,..) -->
+              <%= f.input :birth_number, required: false, label: 'Adresa' %>
+            </div>
+		    	</div>
+		    	
 		    </div>
+		    
 		    <div class="col-md-6">
-		      <div class="row" id="birth">
+		    	
+		    	
+		    	<div class="row" id="birth">
 		    	  <div class="col-md-10 col-md-offset-1">
-              <!-- TODO ZDE PŘIDAT gender -->
-              <%= f.input :birth_date, required: false, label: 'Datum narození' %>
+             
+              <div class="form-group user_birth_date">
+          			<%= f.input :birth_date, type: "text", required: false, label: 'Datum narození', input_html: { id: 'datetimepicker' } %>
+        			</div>
+        			<%= f.input :gender, :label => "Pohlaví", as: :radio_buttons, collection: ['Muž', 'Žena'], wrapper: :vertical_radio_and_checkboxes %>
               <%= f.input :birth_place, required: false, label: 'Místo narození' %>
+              <%= f.input :nationality, required: false, label: 'Státní příslušnost' %>
             </div>
 		    	</div>
+		      
 		    	<div class="row" id="personal">
 		    	  <div class="col-md-10 col-md-offset-1">
 		    		  <hr>
-              <!-- TODO ZDE PŘIDAT ?? -->
-              <%= f.input :birth_number, required: false, label: 'Rodné číslo' %>
-              <%= f.input :nationality, required: false, label: 'Národnost' %>
+              
               <%= f.input :family_status, required: false, label: 'Rodinný stav' %>
+              <%= f.input :birth_number, required: false, label: 'Rodné číslo' %>
+              <br>
+              <%= f.input :bank_acc, required: false, label: 'Bankovní účet' %>
+              <%= f.input :insurance, required: false, label: 'Zdravotní pojišťovna' %>
+              <br>
+              <%= f.input :occupation, required: false, label: 'Současný stav' %>
             </div>
 		    	</div>
-		    	<div class="row" id="personal">
+		    	
+		    	
+		    	
+		    	<div class="row" id="status">
 		    	  <div class="col-md-10 col-md-offset-1">
 		    		  <hr>
-		    		  <p>Status : <%= @user.status %></p>
-		    		  <p>Role : <%= @user.role %></p>
+		    		  <h4>Status : <%= @user.status %></h4>
+		    		  <h4>Role : <%= @user.role %></h4>
+		    		  <h4>Progress : <%= @user.reg_progress %></h4>
             </div>
 		    	</div>
 		    </div>
@@ -72,7 +100,7 @@
 		    <div class="col-md-6 col-md-offset-3">
 		      <br>
 		      <div class="password">
-            <%= f.input :current_password, hint: "pro uložení změn zadejte současné heslo!", required: true %>
+            <%= f.input :current_password, hint: "Pro uložení změn zadejte současné heslo!", required: false %>
 		      </div>
 		      <div class="form-actions">
             <%= f.button :submit, "Uložit změny", class: "btn btn-primary btn-lg btn-block" %>
@@ -82,3 +110,12 @@
 		<% end %>
 	</div>
 </div>
+
+<script>
+  $(function () {
+      $('#datetimepicker').datetimepicker({
+        locale: 'cs',
+        format: 'L'
+      });
+  });
+</script>

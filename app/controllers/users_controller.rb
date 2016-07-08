@@ -34,6 +34,10 @@ class UsersController < ApplicationController
   
   private
   
+    def full_name
+		  self.full_name = [first_name, last_name].join(' ')
+	  end
+  
     def set_user
       @user = User.find(params[:id])
     end

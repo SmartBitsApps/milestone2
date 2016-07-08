@@ -3,7 +3,7 @@ class AfterRegisterController < ApplicationController
   
   before_filter :authenticate_user!
   
-  steps :add_name, :add_birth
+  steps :add_name, :add_birth#, :add_address
   
   def show
     @user = current_user
@@ -17,7 +17,7 @@ class AfterRegisterController < ApplicationController
     if wizard_path == after_register_path(:add_birth)
       check_or_update_registration
     else
-      render_wizard @user
+      render_wizard(@user)
     end
     
   end

@@ -15,7 +15,7 @@ class RegistrationsController < Devise::RegistrationsController
     devise_parameter_sanitizer.permit(:sign_up, keys: [:email, :password, :password_confirmation, :remember_me])
     devise_parameter_sanitizer.permit(:sign_in, keys: [:email, :password, :remember_me])
     devise_parameter_sanitizer.permit(:account_update, keys: [:role, :avatar, :first_name, :last_name, :name, :birth_name, 
-                                  :birth_date, :gender, :birth_number, :birth_place, :nationality, :family_status, :status,
-                                  :remove_avatar, :avatar_cache, :password, :password_confirmation])
+                                  :birth_date, :gender, :birth_number, :birth_place, :nationality, :family_status, :bank_acc, 
+                                  :insurance, :occupation, :status, :reg_progress, :remove_avatar, :avatar_cache, :password, :password_confirmation])
   end
-end
+end 

@@ -5,10 +5,10 @@
   <%= form_for(user) do |f| %>
     <%= f.select(:role, User.roles.keys.map {|role| [role.titleize,role]}) %>
     <td>
-    <%= f.submit 'Change Role' %>
+    <%= f.submit 'Změnit práva', class: "btn btn-default btn-small" %>
     </td>
   <% end %>
 </td>
 <td>
-  <%= link_to("Delete user", user_path(user), :data => { :confirm => "Are you sure?" }, :method => :delete, :class => 'button') unless user == current_user %>
+  <%= link_to("Vymazat", user_path(user), :data => { :confirm => "Jste si jisti?" }, :method => :delete, :class => 'button') unless user == current_user %>
 </td>

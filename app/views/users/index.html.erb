@@ -34,38 +34,54 @@
 					  <% for user in @users  %>
 						  <tr>
 						  	<td>
-						  		<img src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
-						  		<a href="#" class="user-link"><% %></a>
+						  	  
+						  	  <% if !user.avatar.file.nil? %>
+            			  <%= image_tag(user.avatar.url(:medium), alt: "Profile Picture", class: 'center') %>
+            			  <!-- TODO ad else and default avatar -->
+            	    <% end %>
+                  <%= link_to (user.first_name + ' ' + user.last_name), edit_user_path(user) %>
 						  		<span class="user-subhead"><%= user.role %></span>
 						  	</td>
 						  	<td>
-						  		<%= user.created_at %>
+						  		<%= user.created_at.strftime("%H:%Mh - %d.%m.%Y") %>
 						  	</td>
-						  	<td class="text-center">
-						  		<span class="label label-default">user.status</span>
-						  	</td>
+						  	
+						  	<% if user.status == "registered" %>
+						  	  <td class="text-center">
+						  		  <span class="label label-success">registrován</span>
+						  	  </td>
+						  	<% elsif user.status.nil? %>
+						  	  <td class="text-center">
+						  		  <span class="label label-danger">nepotvrzen</span>
+						  	  </td>
+						  	<% end %>
 						  	<td>
 						  		<%= user.email %>
 						  	</td>
 						  	<td style="width: 20%;">
-						  		<%= link_to edit_user_path(user), :class => "table-link" do %>
+						  		<%= link_to user_path(user), :class => "table-link" do %>
 						  			<span class="fa-stack">
 						  				<i class="fa fa-square fa-stack-2x"></i>
 						  				<i class="fa fa-search-plus fa-stack-1x fa-inverse"></i>
 						  			</span>
 						  		<% end %>
-						  		<a href="#" class="table-link">
+						  		<%= link_to edit_user_path(user), :class => "table-link" do %>
 						  			<span class="fa-stack">
 						  				<i class="fa fa-square fa-stack-2x"></i>
 						  				<i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
 						  			</span>
-						  		</a>
-						  		<a href="#" class="table-link danger">
-						  			<span class="fa-stack">
-						  				<i class="fa fa-square fa-stack-2x"></i>
-						  				<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
-						  			</span>
-						  		</a>
+						  		<% end %>
+						  		<% if user == current_user %>
+						  		<% else %>
+						  		  <%= link_to(user_path(user), :class => "table-link danger", :data => { :confirm => "Jste si jisti?" }, :method => :delete) do %>
+						  		    <span class="fa-stack">
+						  			  	<i class="fa fa-square fa-stack-2x"></i>
+						  			  	<i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+						  			  </span>
+						  		  <% end %>
+						  		<% end %>
+						  		
+						  			
 						  	</td>
 						  </tr>
 					  <% end %> 	

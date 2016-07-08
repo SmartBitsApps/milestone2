@@ -14,8 +14,43 @@
  
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 @import "font-awesome-sprockets";
 @import "font-awesome";
 @import "custom";
 @import "events";
 @import "clients";
+
+
+.password p.help-block {
+  font-weight: 700;
+  color: rgb(239, 111, 66);
+  text-align: center;
+}
+
+.center {
+  display: block;
+  margin: auto;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	font-family: 'Open Sans', sans-serif;
+}
+
+.clearfix:before, .clearfix:after {
+	content: " ";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.alert {
+  
+  display: block;
+}
